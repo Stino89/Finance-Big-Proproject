@@ -25,3 +25,4 @@ Managing personal finances can be challenging. This application aims to simplify
 - Adding budget planning feature.
 - Integrating with bank APIs for automatic transaction imports.
 
+
