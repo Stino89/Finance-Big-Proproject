@@ -16,8 +16,8 @@ const RegistrationPage = () => {
       });
       alert('Registration successful');
     } catch (error) {
-      console.error('Error registering:', error);
-      alert('Registration failed');
+      console.error('Error registering:', error); // Log the full error
+      alert('Registration failed: ' + (error.response ? error.response.data.message : error.message));
     }
   };
 

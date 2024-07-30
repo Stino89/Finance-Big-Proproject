@@ -1,20 +1,26 @@
 const express = require('express');
+const cors = require('cors'); // Import the cors middleware
 const app = express();
+
+app.use(cors()); // Use cors middleware to enable CORS for all routes
 
 app.use(express.json()); // Middleware for parsing JSON bodies
 
-// Import routes
+// Import authRoutes
 const authRoutes = require('./routes/authRoutes');
+
+// Use authRoutes
+app.use('/api/auth', authRoutes);
+
+// Other routes
 const userRoutes = require('./routes/userRoutes');
 const transactionRoutes = require('./routes/transactionRoutes');
 
-// Use routes
-app.use('/api/users', authRoutes); // Use authRoutes for user registration and login
-app.use('/api/users', userRoutes); // Ensure this doesn't conflict with authRoutes
+app.use('/api/users', userRoutes);
 app.use('/api/transactions', transactionRoutes);
 
 app.get('/', (req, res) => {
-  res.send('API is running...');
+  res.send('Hello World!');
 });
 
 module.exports = app;
