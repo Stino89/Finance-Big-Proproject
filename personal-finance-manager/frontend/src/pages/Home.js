@@ -7,11 +7,15 @@ import FinancialQuote from '../components/FinancialQuote'; // Import the Financi
 const Home = () => {
   return (
     <div>
-      <Navbar />  // Include the Navbar at the top of the home page for navigation
-      <h2>Welcome to your Personal Finance Manager</h2>  // Main heading for the home page
-      <FinancialQuote />  // Embed the FinancialQuote component to provide insightful content about financial planning
+      {/* Include the Navbar at the top of the home page for navigation */}
+      <Navbar />
+      {/* Main heading for the home page */}
+      <h2>Welcome to your Personal Finance Manager</h2>
+      {/* Embed the FinancialQuote component to provide insightful content about financial planning */}
+      <FinancialQuote />
     </div>
   );
 };
 
-export default Home;  // Export the Home component to make it available for use in other parts of the app
+// Export the Home component to make it available for use in other parts of the app
+export default Home;
