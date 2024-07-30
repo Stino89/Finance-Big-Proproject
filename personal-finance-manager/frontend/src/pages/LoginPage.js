@@ -1,40 +1,31 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const RegistrationPage = () => {
+const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
+  const navigate = useNavigate();
 
-  const handleRegister = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/users/register', {
+      const response = await axios.post('http://localhost:5000/api/users/login', {
         email,
         password,
-        name,
       });
-      alert('Registration successful');
+      localStorage.setItem('token', response.data.token);
+      navigate('/dashboard');
     } catch (error) {
-      console.error('Error registering:', error);
-      alert('Registration failed');
+      console.error('Error logging in:', error);
+      alert('Login failed');
     }
   };
 
   return (
     <div className="container mt-4">
-      <h2>Register</h2>
-      <form onSubmit={handleRegister}>
-        <div className="form-group">
-          <label>Name:</label>
-          <input
-            type="text"
-            className="form-control"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </div>
+      <h2>Login</h2>
+      <form onSubmit={handleLogin}>
         <div className="form-group">
           <label>Email:</label>
           <input
@@ -56,11 +47,11 @@ const RegistrationPage = () => {
           />
         </div>
         <button type="submit" className="btn btn-primary">
-          Register
+          Login
         </button>
       </form>
     </div>
   );
 };
 
-export default RegistrationPage;
+export default LoginPage;

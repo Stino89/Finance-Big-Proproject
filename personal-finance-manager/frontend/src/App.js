@@ -1,18 +1,19 @@
 // Importing necessary libraries and components from React and React Router DOM
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
-import { Container, Navbar, Nav, Button } from 'react-bootstrap';
-import { ThemeProvider, useTheme } from './ThemeContext';
+import { Container, Navbar, Nav, Button } from 'react-bootstrap'; // Importing Bootstrap components for UI styling
+import { ThemeProvider, useTheme } from './ThemeContext'; // Importing the ThemeProvider and useTheme for theme management
 
 // Lazy loading the page components to improve performance
 const Home = lazy(() => import('./pages/Home'));
 const Transactions = lazy(() => import('./pages/Transactions'));
 const Dashboard = lazy(() => import('./components/Dashboard'));
 const RegistrationPage = lazy(() => import('./pages/RegistrationPage'));
+const LoginPage = lazy(() => import('./pages/LoginPage')); // Importing LoginPage
 
 // Component for the theme toggle button
 const ThemeToggleButton = () => {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme(); // Use the theme context to access and set the current theme
   return (
     <Button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} variant="secondary">
       Switch to {theme === 'light' ? 'Dark' : 'Light'} Mode
@@ -35,6 +36,7 @@ const App = () => {
                 <Nav.Link as={NavLink} to="/transactions">Transactions</Nav.Link> {/* NavLink for transactions page */}
                 <Nav.Link as={NavLink} to="/dashboard">Dashboard</Nav.Link> {/* NavLink for dashboard */}
                 <Nav.Link as={NavLink} to="/register">Register</Nav.Link> {/* NavLink for registration page */}
+                <Nav.Link as={NavLink} to="/login">Login</Nav.Link> {/* NavLink for login page */}
               </Nav>
               <ThemeToggleButton /> {/* Button to toggle the theme */}
             </Navbar.Collapse>
@@ -47,6 +49,7 @@ const App = () => {
               <Route path="/transactions" element={<Transactions />} /> {/* Route for the Transactions page */}
               <Route path="/dashboard" element={<Dashboard />} /> {/* Route for the Dashboard */}
               <Route path="/register" element={<RegistrationPage />} /> {/* Route for the Registration page */}
+              <Route path="/login" element={<LoginPage />} /> {/* Route for the Login page */}
               <Route path="*" element={<div>Not Found</div>} /> {/* Catch-all route for undefined paths */}
             </Routes>
           </Suspense>
@@ -56,4 +59,5 @@ const App = () => {
   );
 };
 
+// Export the App component to be used in other parts of the application, particularly index.js
 export default App;
