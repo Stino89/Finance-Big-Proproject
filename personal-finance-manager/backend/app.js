@@ -3,21 +3,18 @@ const app = express();
 
 app.use(express.json()); // Middleware for parsing JSON bodies
 
-// Import authRoutes
+// Import routes
 const authRoutes = require('./routes/authRoutes');
-
-// Use authRoutes
-app.use('/api/auth', authRoutes);
-
-// Other routes
 const userRoutes = require('./routes/userRoutes');
 const transactionRoutes = require('./routes/transactionRoutes');
 
-app.use('/api/users', userRoutes);
+// Use routes
+app.use('/api/users', authRoutes); // Use authRoutes for user registration and login
+app.use('/api/users', userRoutes); // Ensure this doesn't conflict with authRoutes
 app.use('/api/transactions', transactionRoutes);
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('API is running...');
 });
 
 module.exports = app;
