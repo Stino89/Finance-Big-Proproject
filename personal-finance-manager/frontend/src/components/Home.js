@@ -6,21 +6,15 @@ import FinancialQuote from '../components/FinancialQuote'; // Import the Financi
 const Home = () => {
   return (
     <div>
-      {/* Jumbotron for the primary introduction and call to action */}
-      <div className="jumbotron">
+      <div className="jumbotron"> {/* Jumbotron for the primary introduction and call to action */}
         <h1 className="display-4">Hello, Finance Manager!</h1>
         <p className="lead">Manage your finances easily and efficiently.</p>
         <hr className="my-4" />
         <p>Track your expenses, view transaction history, and analyze your financial habits.</p>
       </div>
-
-      {/* FinancialQuote component inserted to provide motivational insights into the benefits of financial planning */}
-      <FinancialQuote />
-
-      {/* Grid layout to display key features in cards */}
-      <div className="row">
-        {/* Individual card for budget management feature */}
-        <div className="col-md-4">
+      <FinancialQuote /> {/* FinancialQuote component inserted to provide motivational insights into the benefits of financial planning */}
+      <div className="row"> {/* Grid layout to display key features in cards */}
+        <div className="col-md-4"> {/* Individual card for budget management feature */}
           <div className="card text-white bg-primary mb-3">
             <div className="card-header">Budget</div>
             <div className="card-body">
@@ -29,8 +23,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        {/* Individual card for savings tracking feature */}
-        <div className="col-md-4">
+        <div className="col-md-4"> {/* Individual card for savings tracking feature */}
           <div className="card text-white bg-success mb-3">
             <div className="card-header">Savings</div>
             <div className="card-body">
@@ -39,8 +32,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        {/* Individual card for investment portfolio management */}
-        <div className="col-md-4">
+        <div className="col-md-4"> {/* Individual card for investment portfolio management */}
           <div className="card text-white bg-info mb-3">
             <div className="card-header">Investments</div>
             <div className="card-body">
@@ -54,5 +46,4 @@ const Home = () => {
   );
 };
 
-// Export the Home component to be used in the main App component
 export default Home;
