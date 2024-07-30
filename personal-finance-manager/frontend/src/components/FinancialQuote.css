@@ -1,0 +1,26 @@
+.financial-quote-container {
+    background-color: #f7f7f7; /* Light grey background for subtlety */
+    border: 1px solid #dcdcdc; /* Soft border to define the section */
+    border-radius: 8px; /* Rounded corners for modern appearance */
+    padding: 20px; /* Adequate padding for content breathing room */
+    margin-top: 20px; /* Space from previous content */
+    text-align: center; /* Center align the text for better focus */
+}
+
+.quote-heading {
+    color: #333; /* Dark grey for better readability */
+    font-size: 24px; /* Slightly larger size for heading */
+    margin-bottom: 10px; /* Space after heading */
+}
+
+.quote-text {
+    font-style: italic; /* Italicize for emphasis */
+    color: #666; /* Medium grey for the quote text */
+    font-size: 18px; /* Readable text size */
+}
+
+.visuals img {
+    max-width: 100%; /* Responsive image width */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 20px; /* Space above the image */
+}
