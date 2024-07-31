@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from 'react'; // Importing necessary modules from React
-import Navbar from '../components/Navbar'; // Importing the Navbar component
-import api from '../services/api'; // Importing the api service for making HTTP requests
+import React, { useEffect, useState } from 'react';
+import Navbar from '../components/Navbar';
+import api from '../services/api'; // Update this import
 
 const Transactions = () => {
-  // Using React's useState hook to create state variables
-  const [transactions, setTransactions] = useState([]); // State to hold the list of transactions
-  const [description, setDescription] = useState(''); // State to hold the description input value
-  const [amount, setAmount] = useState(''); // State to hold the amount input value
-  const [editMode, setEditMode] = useState(false); // State to determine if edit mode is active
-  const [currentTransaction, setCurrentTransaction] = useState(null); // State to hold the transaction being edited
+  const [transactions, setTransactions] = useState([]);
+  const [description, setDescription] = useState('');
+  const [amount, setAmount] = useState('');
+  const [editMode, setEditMode] = useState(false);
+  const [currentTransaction, setCurrentTransaction] = useState(null);
 
-  // useEffect hook to fetch transactions when the component mounts
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
@@ -24,7 +22,6 @@ const Transactions = () => {
     fetchTransactions(); // Calling the fetchTransactions function
   }, []); // Empty dependency array ensures this runs once when the component mounts
 
-  // Function to handle adding a new transaction
   const handleAdd = async () => {
     if (editMode) {
       await handleUpdate(); // If in edit mode, call the update function
@@ -40,7 +37,6 @@ const Transactions = () => {
     }
   };
 
-  // Function to handle deleting a transaction
   const handleDelete = async (id) => {
     try {
       await api.delete(`/transactions/${id}`); // Sending a DELETE request to delete the transaction
@@ -50,7 +46,6 @@ const Transactions = () => {
     }
   };
 
-  // Function to handle editing a transaction
   const handleEdit = (transaction) => {
     setEditMode(true); // Setting edit mode to true
     setCurrentTransaction(transaction); // Setting the current transaction being edited
@@ -58,7 +53,6 @@ const Transactions = () => {
     setAmount(transaction.amount); // Setting the amount input to the transaction's amount
   };
 
-  // Function to handle updating a transaction
   const handleUpdate = async () => {
     try {
       const response = await api.put(`/transactions/${currentTransaction._id}`, {
@@ -111,5 +105,3 @@ const Transactions = () => {
 };
 
 export default Transactions; // Exporting the Transactions component
-
-       
