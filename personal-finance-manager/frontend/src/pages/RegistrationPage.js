@@ -17,7 +17,7 @@ const RegistrationPage = () => {
       alert('Registration successful');
     } catch (error) {
       console.error('Error registering:', error); // Log the full error
-      alert('Registration failed: ' + (error.response ? JSON.stringify(error.response.data) : error.message));
+      alert('Registration failed: ' + (error.response ? error.response.data.error : error.message));
     }
   };
 
