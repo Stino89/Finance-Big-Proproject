@@ -1,28 +1,22 @@
-# Finance-Big-Proproject
-# Personal Finance Manager
+Personal Finance Manager
+Description
+Personal Finance Manager is a full-stack web application designed to help users manage their finances efficiently. Users can track their expenses, view transaction history, analyze their financial habits, and get insights on budgeting and saving. The app provides a user-friendly interface and robust functionality to keep financial data organized and accessible.
 
-## Inspiration
-Managing personal finances can be challenging. This application aims to simplify tracking income, expenses, and savings goals, helping users to manage their finances efficiently.
+Demo
+[Insert demo link here if available]
 
-## How to Use
-1. Register or log in to your account.
-2. Add income and expense entries.
-3. Categorize your transactions.
-4. View reports to visualize spending patterns.
-5. Set and track savings goals.
-
-## Technologies Used
-- Backend: Node.js, Express.js
-- Frontend: React.js
-- Database: MongoDB
-- ORM: Mongoose
-- Styling: SASS
-
-## Known Issues
-- No significant bugs identified at the moment. Please report any issues on GitHub.
-
-## Future Enhancements
-- Adding budget planning feature.
-- Integrating with bank APIs for automatic transaction imports.
-
+Technologies
+Frontend:
+React
+React Router DOM
+Bootstrap
+Backend:
+Node.js
+Express.js
+MongoDB with Mongoose
+PostgreSQL with Sequelize
+Others:
+JWT for authentication
+Axios for HTTP requests
+Vercel for deployment
 
